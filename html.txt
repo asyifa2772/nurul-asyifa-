@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tes Kejujuran</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-family: 'Brush Script MT', cursive, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .emojis {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            font-style: italic;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .btn-yes {
+            background-color: #ff1493;
+            color: white;
+        }
+
+        .btn-no {
+            background-color: #2b2b2b;
+            color: #ff1493;
+        }
+
+        .result {
+            color: #ff69b4;
+            font-family: 'Brush Script MT', cursive, sans-serif;
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>💖 Tes Kejujuran 💖</h1>
+        
+        <div class="emojis">🥳💖</div>
+        
+        <div class="question">Aku tau kamu orang baik 😎</div>
+        
+        <div class="buttons">
+            <button class="btn-yes" onclick="showResult()">Yes 😇</button>
+            <button class="btn-no" id="btnNo" onmouseover="moveButton()" onclick="moveButton()">No 😈</button>
+        </div>
+        
+        <div class="result" id="resultText">Nah kan jujur 😆✨</div>
+    </div>
+
+    <script>
+        // Fungsi saat tombol "Yes" diklik
+        function showResult() {
+            document.getElementById('resultText').classList.add('show');
+        }
+
+        // Trik usil: Membuat tombol "No" menghindar saat didekati/diklik
+        function moveButton() {
+            const btnNo = document.getElementById('btnNo');
+            // Menghitung posisi acak agar tombol tidak keluar dari layar
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 20);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 20);
+            
+            btnNo.style.position = 'absolute';
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px';
+        }
+    </script>
+
+</body>
+</html>
